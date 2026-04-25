@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html><html lang="en-IN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><link rel="icon" href="assets/images/favicon.webp" type="image/webp"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet"/><link rel="stylesheet" href="assets/css/error-pages.css"/><title>No Internet – Offline | Team Shivam Tripathi</title></head><body>
+<div class="err-doc">
+  <div class="err-doc-header">
+    <span class="err-doc-header-brand">LIC of India &nbsp;|&nbsp; Team Shivam Tripathi</span>
+    <span class="err-doc-header-ref">REF: ERR/NET/OFL</span>
+  </div>
+  <div class="err-doc-body">
+    <div class="err-watermark">OFL</div>
+    <div class="err-stamp gold"><span class="err-stamp-text">NO<br>SIGNAL</span><span class="err-stamp-code" style="font-size:1.2rem;">OFFL.</span></div>
+    <div class="err-form-group"><span class="err-field-label">Network Status</span><span class="err-field-value highlight">Connection Policy Lapsed</span></div>
+    <div class="err-form-group"><span class="err-field-label">Signal Strength</span><span class="err-field-value error-text"><span class="err-pulse"></span>No Internet Detected</span></div>
+    <div class="err-form-group"><span class="err-field-label">Last Online</span><span class="err-field-value" id="last-online">—</span></div>
+    <hr class="err-divider"/>
+    <div class="err-message-box warn">It looks like your internet connection has been interrupted. Please check your Wi-Fi or mobile data. This page will automatically reload once your connection is restored.</div>
+    <div class="err-form-group"><span class="err-field-label">Auto-reconnect check</span><div class="err-countdown" id="cd-off">10</div><div class="err-progress"><div class="err-progress-bar" id="pb-off" style="width:100%"></div></div></div>
+    <div class="err-actions">
+      <button class="err-btn err-btn-gold" onclick="checkConn()">&#8635; Check Connection</button>
+      <button class="err-btn err-btn-outline" onclick="window.location.reload()">Reload Page</button>
+    </div>
+    <div id="conn-status" style="margin-top:12px;font-size:0.8rem;color:#16a34a;display:none;font-family:Courier Prime,monospace;"><span class="err-pulse green"></span>Connection restored! Redirecting...</div>
+  </div>
+  <div class="err-doc-footer">
+    <span>Team Shivam Tripathi &copy; 2025</span>
+    <span>Network Unavailable</span>
+  </div>
+</div>
+<script>
+  var d = new Date(); document.getElementById("last-online").textContent = d.toLocaleTimeString("en-IN");
+  function checkConn(){
+    if(navigator.onLine){ document.getElementById("conn-status").style.display="block"; setTimeout(function(){ window.location.href="index.html"; },1500); }
+    else { alert("Still offline. Please check your connection."); }
+  }
+  var s=10,pb=document.getElementById("pb-off"),cd=document.getElementById("cd-off");
+  var t=setInterval(function(){ s--; cd.textContent=s; pb.style.width=(s/10*100)+"%"; if(s<=0){ s=10; pb.style.width="100%"; checkConn(); } },1000);
+  window.addEventListener("online", function(){ document.getElementById("conn-status").style.display="block"; setTimeout(function(){window.location.href="index.html";},1500); });
+</script>
+</body></html>
+
+

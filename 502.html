@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>502 - Bad Gateway</title>
+  <style>
+    body {
+      margin: 0; padding: 0; background: #16a085; color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; text-align: center;
+    }
+    .code { font-size: 10rem; font-weight: bold; margin: 0; line-height: 1; }
+    .msg { font-size: 2.5rem; margin-top: 10px; font-weight: bold; }
+    .desc { font-size: 1.2rem; margin-top: 10px; margin-bottom: 40px; opacity: 0.9; max-width: 600px; }
+    .actions { display: flex; gap: 15px; justify-content: center; }
+    .btn {
+      padding: 12px 24px; background: rgba(0,0,0,0.15); color: #fff;
+      text-decoration: none; border-radius: 5px; border: 2px solid rgba(255,255,255,0.4); font-weight: 600; transition: 0.3s;
+    }
+    .btn:hover { background: rgba(0,0,0,0.3); }
+    .icon { font-size: 5rem; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <div class="icon">🔌</div>
+  <h1 class="code">502</h1>
+  <div class="msg">Bad Gateway</div>
+  <div class="desc">The server received an invalid response from another server. This usually happens during API issues or server connection problems.</div>
+  <div class="actions">
+    <button onclick="window.location.reload()" class="btn">Refresh Page</button>
+    <a href="index.html" class="btn">Return Home</a>
+  </div>
+</body>
+</html>

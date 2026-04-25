@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Write Post | Blog Studio</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="assets/images/favicon.webp" type="image/webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/write-post.css" />
+</head>
+<body>
+
+<!-- ── TOP BAR ── -->
+<header class="wp-topbar">
+  <div class="wp-topbar-left">
+    <a href="admin.html" class="wp-back-btn" title="Back to Admin">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+    </a>
+    <div class="wp-topbar-brand">
+      <span class="wp-brand-name">Blog Studio</span>
+      <span class="wp-autosave-status" id="autosave-status">● All changes saved</span>
+    </div>
+  </div>
+  <div class="wp-topbar-center">
+    <div class="wp-tab-bar">
+      <button class="wp-tab active" data-tab="write">✍️ Write</button>
+      <button class="wp-tab" data-tab="seo">🔍 SEO</button>
+      <button class="wp-tab" data-tab="preview">👁️ Preview</button>
+    </div>
+  </div>
+  <div class="wp-topbar-right">
+    <span class="wp-reading-time" id="reading-time">0 min read</span>
+    <span class="wp-word-count" id="word-count">0 words</span>
+    <button class="wp-btn-draft" id="btn-save-draft">💾 Save Draft</button>
+    <button class="wp-btn-publish" id="btn-publish">🚀 Publish</button>
+  </div>
+</header>
+
+<!-- ── MAIN LAYOUT ── -->
+<div class="wp-layout">
+
+  <!-- ══ LEFT: MAIN EDITOR ══ -->
+  <main class="wp-editor-col">
+
+    <!-- TAB: WRITE -->
+    <div class="wp-panel active" id="panel-write">
+
+      <!-- STEP 1: Title & Subtitle -->
+      <div class="wp-section-card">
+        <div class="wp-section-label"><span class="step-num">1</span> Blog Basics</div>
+
+        <div class="wp-field-group">
+          <label class="wp-label" for="post-title">Blog Title <span class="req">*</span></label>
+          <input type="text" id="post-title" class="wp-title-input" placeholder="Write a compelling title…" maxlength="100" />
+          <div class="wp-field-meta">
+            <span class="wp-hint">💡 Best titles are 50–70 characters</span>
+            <span class="wp-char-count" id="title-count">0/100</span>
+          </div>
+        </div>
+
+        <div class="wp-field-group">
+          <label class="wp-label" for="post-subtitle">Subtitle <span class="opt">(optional)</span></label>
+          <input type="text" id="post-subtitle" class="wp-input" placeholder="A supporting line under the title…" />
+        </div>
+
+        <div class="wp-field-group">
+          <label class="wp-label" for="post-excerpt">Short Description <span class="req">*</span></label>
+          <textarea id="post-excerpt" class="wp-textarea" rows="3" placeholder="Write a compelling 1–2 sentence summary that appears on the blog listing page…" maxlength="250"></textarea>
+          <div class="wp-field-meta">
+            <span class="wp-hint">💡 Appears on the blog card & in Google search results</span>
+            <span class="wp-char-count" id="excerpt-count">0/250</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: Content Editor -->
+      <div class="wp-section-card" id="editor-card">
+        <div class="wp-section-label"><span class="step-num">2</span> Write Content</div>
+
+        <!-- Template Picker -->
+        <div class="wp-template-bar">
+          <span class="wp-template-label">📐 Start with a template:</span>
+          <button class="wp-tpl-btn" data-tpl="simple">Simple Blog</button>
+          <button class="wp-tpl-btn" data-tpl="story">Story Style</button>
+          <button class="wp-tpl-btn" data-tpl="listicle">Listicle</button>
+          <button class="wp-tpl-btn" data-tpl="howto">How-To Guide</button>
+          <button class="wp-tpl-btn wp-tpl-clear" id="clear-editor">✕ Clear</button>
+        </div>
+
+        <!-- Rich Text Toolbar -->
+        <div class="wp-toolbar" id="editor-toolbar">
+          <!-- History -->
+          <button class="wp-tbtn" data-cmd="undo" title="Undo (Ctrl+Z)">↩</button>
+          <button class="wp-tbtn" data-cmd="redo" title="Redo (Ctrl+Y)">↪</button>
+          <div class="wp-tb-sep"></div>
+
+          <!-- Text Format -->
+          <select class="wp-tbtn wp-block-select" id="font-name-sel" title="Font Family" style="width:105px;">
+            <option value="">Font Family</option>
+            <option value="Arial" style="font-family:Arial">Arial</option>
+            <option value="Helvetica" style="font-family:Helvetica">Helvetica</option>
+            <option value="Times New Roman" style="font-family:'Times New Roman'">Times New Roman</option>
+            <option value="Georgia" style="font-family:Georgia">Georgia</option>
+            <option value="Verdana" style="font-family:Verdana">Verdana</option>
+            <option value="Tahoma" style="font-family:Tahoma">Tahoma</option>
+            <option value="Trebuchet MS" style="font-family:'Trebuchet MS'">Trebuchet MS</option>
+            <option value="Courier New" style="font-family:'Courier New'">Courier New</option>
+            <option value="Impact" style="font-family:Impact">Impact</option>
+            <option value="Comic Sans MS" style="font-family:'Comic Sans MS'">Comic Sans MS</option>
+            <option value="Palatino Linotype" style="font-family:'Palatino Linotype'">Palatino Linotype</option>
+            <option value="Garamond" style="font-family:Garamond">Garamond</option>
+            <option value="Bookman Old Style" style="font-family:'Bookman Old Style'">Bookman</option>
+            <option value="Century Gothic" style="font-family:'Century Gothic'">Century Gothic</option>
+            <option value="Arial Black" style="font-family:'Arial Black'">Arial Black</option>
+            <option value="Lucida Console" style="font-family:'Lucida Console'">Lucida Console</option>
+            <option value="Arial Narrow" style="font-family:'Arial Narrow'">Arial Narrow</option>
+            <option value="Brush Script MT" style="font-family:'Brush Script MT'">Brush Script MT</option>
+            <option value="Candara" style="font-family:Candara">Candara</option>
+            <option value="Optima" style="font-family:Optima">Optima</option>
+          </select>
+          <select class="wp-tbtn wp-block-select" id="block-type" title="Block type">
+            <option value="p">Paragraph</option>
+            <option value="h2">Heading 2</option>
+            <option value="h3">Heading 3</option>
+            <option value="h4">Heading 4</option>
+            <option value="pre">Code Block</option>
+            <option value="blockquote">Quote</option>
+          </select>
+          <div class="wp-tb-sep"></div>
+
+          <!-- Inline -->
+          <button class="wp-tbtn" data-cmd="bold" title="Bold (Ctrl+B)"><b>B</b></button>
+          <button class="wp-tbtn" data-cmd="italic" title="Italic (Ctrl+I)"><i>I</i></button>
+          <button class="wp-tbtn" data-cmd="underline" title="Underline (Ctrl+U)"><u>U</u></button>
+          <button class="wp-tbtn" data-cmd="strikeThrough" title="Strikethrough"><s>S</s></button>
+          <button class="wp-tbtn wp-tbtn-highlight" data-cmd="hiliteColor" title="Highlight text">🖊</button>
+          <div class="wp-tb-sep"></div>
+
+          <!-- Lists -->
+          <button class="wp-tbtn" data-cmd="insertUnorderedList" title="Bullet List">• List</button>
+          <button class="wp-tbtn" data-cmd="insertOrderedList" title="Numbered List">1. List</button>
+          <div class="wp-tb-sep"></div>
+
+          <!-- Align -->
+          <button class="wp-tbtn" data-cmd="justifyLeft" title="Align Left">⫷</button>
+          <button class="wp-tbtn" data-cmd="justifyCenter" title="Center">≡</button>
+          <button class="wp-tbtn" data-cmd="justifyRight" title="Align Right">⫸</button>
+          <div class="wp-tb-sep"></div>
+
+          <!-- Special -->
+          <button class="wp-tbtn" id="btn-link" title="Insert Link">🔗 Link</button>
+          <button class="wp-tbtn" id="btn-callout" title="Insert Callout Box">📌 Callout</button>
+          <button class="wp-tbtn" id="btn-divider" title="Insert Divider">— HR</button>
+          <button class="wp-tbtn" id="btn-table" title="Insert Table">📊 Table</button>
+          <button class="wp-tbtn" id="btn-inline-image" title="Insert Image">🖼 Image</button>
+          <input type="file" id="inline-image-upload" accept="image/*" style="display:none;" />
+          <div class="wp-tb-sep"></div>
+
+          <!-- Font size -->
+          <select class="wp-tbtn wp-block-select" id="font-size-sel" title="Font size">
+            <option value="">Size</option>
+            <option value="1">Small</option>
+            <option value="3">Normal</option>
+            <option value="5">Large</option>
+            <option value="6">XLarge</option>
+          </select>
+        </div>
+
+        <!-- Writing hints bar -->
+        <div class="wp-editor-hints">
+          <span id="editor-hint">💡 Start with a strong intro — tell readers what they'll learn</span>
+        </div>
+
+        <!-- Editor area -->
+        <div class="wp-editor-wrapper" style="position: relative;">
+          <div id="post-content" class="wp-content-editor" contenteditable="true"
+               role="textbox" aria-multiline="true"
+               placeholder="Start writing your blog post here…&#10;&#10;Tip: Use Heading 2 after every 200 words to break up content."
+          ></div>
+
+          <!-- Floating Image Toolbar Popup -->
+          <div class="img-format-popup" id="img-format-popup" style="display:none;">
+            <button class="img-fmt-btn" data-align="align-left" title="Float Left">⫷ Left</button>
+            <button class="img-fmt-btn" data-align="align-center" title="Center">≡ Center</button>
+            <button class="img-fmt-btn" data-align="align-right" title="Float Right">⫸ Right</button>
+            <div class="wp-tb-sep" style="height:20px; margin:0 4px;"></div>
+            <button class="img-fmt-btn img-fmt-del" data-align="delete" title="Remove Image">🗑️</button>
+          </div>
+        </div>
+
+        <!-- Key Points -->
+        <div class="wp-field-group" style="margin-top:20px;">
+          <label class="wp-label">📌 Key Highlights <span class="opt">(optional)</span></label>
+          <p class="wp-hint" style="margin-bottom:8px;">These appear as a highlights box in your blog post</p>
+          <div id="highlights-list">
+            <div class="highlight-item">
+              <input type="text" class="wp-input highlight-input" placeholder="Key point 1…" />
+              <button class="highlight-remove" title="Remove">✕</button>
+            </div>
+            <div class="highlight-item">
+              <input type="text" class="wp-input highlight-input" placeholder="Key point 2…" />
+              <button class="highlight-remove" title="Remove">✕</button>
+            </div>
+          </div>
+          <button class="wp-btn-ghost" id="add-highlight">+ Add Key Point</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: Image -->
+      <div class="wp-section-card">
+        <div class="wp-section-label"><span class="step-num">3</span> Featured Image</div>
+
+        <div class="wp-image-uploader" id="image-drop-zone">
+          <div class="wp-image-upload-inner" id="upload-inner">
+            <div class="wp-upload-icon">🖼️</div>
+            <p class="wp-upload-title">Drag & Drop image here</p>
+            <p class="wp-upload-sub">or</p>
+            <label class="wp-btn-upload" for="image-file-input">Browse Image</label>
+            <input type="file" id="image-file-input" accept="image/*" style="display:none" />
+            <p class="wp-upload-hint">PNG, JPG, WEBP • Max 5MB • Auto-compressed</p>
+          </div>
+          <div class="wp-image-preview-wrap" id="image-preview-wrap" style="display:none">
+            <img id="image-preview" src="" alt="Preview" style="cursor:pointer;" title="Click to enlarge" />
+            <div class="wp-image-preview-actions">
+              <div class="wp-field-group">
+                <label class="wp-label">ALT Text <span class="wp-hint">(SEO — describe the image)</span></label>
+                <input type="text" id="image-alt" class="wp-input" placeholder="e.g. LIC agent discussing policy with client" />
+              </div>
+              <div class="wp-field-group">
+                <label class="wp-label">Image Position</label>
+                <div class="wp-radio-group">
+                  <label><input type="radio" name="img-pos" value="full" checked /> Full width</label>
+                  <label><input type="radio" name="img-pos" value="left" /> Float left</label>
+                  <label><input type="radio" name="img-pos" value="right" /> Float right</label>
+                </div>
+              </div>
+              <button class="wp-btn-ghost wp-remove-img" id="remove-image">✕ Remove Image</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /panel-write -->
+
+    <!-- TAB: SEO -->
+    <div class="wp-panel" id="panel-seo">
+      <div class="wp-section-card">
+        <div class="wp-section-label">🔍 SEO Assistant</div>
+
+        <!-- SEO Score -->
+        <div class="seo-score-board" id="seo-score-board">
+          <div class="seo-score-ring">
+            <svg viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="32" fill="none" stroke="#e8eaf0" stroke-width="8"/>
+              <circle cx="40" cy="40" r="32" fill="none" stroke="#22c55e" stroke-width="8"
+                stroke-dasharray="200" stroke-dashoffset="200" id="seo-ring" stroke-linecap="round"
+                transform="rotate(-90 40 40)"/>
+            </svg>
+            <span class="seo-score-num" id="seo-score-num">0</span>
+          </div>
+          <div class="seo-score-info">
+            <h3 id="seo-score-label">Fill in SEO fields</h3>
+            <p id="seo-score-sub">Complete the fields below to get your score</p>
+          </div>
+        </div>
+
+        <div class="wp-field-group">
+          <label class="wp-label">🎯 Focus Keyword</label>
+          <input type="text" id="seo-keyword" class="wp-input" placeholder="e.g. LIC agent in Prayagraj" />
+          <span class="wp-hint">The main term you want this post to rank for in Google</span>
+        </div>
+
+        <div class="wp-field-group">
+          <label class="wp-label">📄 Meta Title</label>
+          <input type="text" id="seo-title" class="wp-input" placeholder="SEO title (auto-filled from blog title)" maxlength="60" />
+          <div class="wp-field-meta">
+            <span class="wp-hint">Shown in Google search results (max 60 chars)</span>
+            <span class="wp-char-count" id="seo-title-count">0/60</span>
+          </div>
+          <div class="seo-serp-preview" id="serp-preview">
+            <div class="serp-title" id="serp-title">Blog Title Here</div>
+            <div class="serp-url">teamshivamtripathi.com › blog › post</div>
+            <div class="serp-desc" id="serp-desc">Meta description will appear here…</div>
+          </div>
+        </div>
+
+        <div class="wp-field-group">
+          <label class="wp-label">📝 Meta Description</label>
+          <textarea id="seo-desc" class="wp-textarea" rows="3" placeholder="Meta description (auto-filled from excerpt)" maxlength="160"></textarea>
+          <div class="wp-field-meta">
+            <span class="wp-hint">Shown under your link in Google (max 160 chars)</span>
+            <span class="wp-char-count" id="seo-desc-count">0/160</span>
+          </div>
+        </div>
+
+        <!-- SEO Checklist -->
+        <div class="seo-checklist" id="seo-checklist">
+          <h4 class="seo-checklist-title">SEO Checklist</h4>
+          <div class="seo-check-item" id="chk-keyword-title"><span class="chk-icon">○</span> Keyword in title</div>
+          <div class="seo-check-item" id="chk-keyword-desc"><span class="chk-icon">○</span> Keyword in description</div>
+          <div class="seo-check-item" id="chk-keyword-content"><span class="chk-icon">○</span> Keyword in content</div>
+          <div class="seo-check-item" id="chk-img-alt"><span class="chk-icon">○</span> Image has ALT text</div>
+          <div class="seo-check-item" id="chk-title-len"><span class="chk-icon">○</span> Title is 50–70 characters</div>
+          <div class="seo-check-item" id="chk-desc-len"><span class="chk-icon">○</span> Description is 120–160 characters</div>
+          <div class="seo-check-item" id="chk-headings"><span class="chk-icon">○</span> Content has H2 headings</div>
+          <div class="seo-check-item" id="chk-word-count"><span class="chk-icon">○</span> Content is 300+ words</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: PREVIEW -->
+    <div class="wp-panel" id="panel-preview">
+      <div class="wp-section-card">
+        <div class="wp-section-label">👁️ Live Preview</div>
+        <div class="wp-preview-device-bar">
+          <button class="wp-dev-btn active" data-device="desktop">🖥️ Desktop</button>
+          <button class="wp-dev-btn" data-device="mobile">📱 Mobile</button>
+        </div>
+        <div class="wp-preview-frame-wrap" id="preview-frame-wrap">
+          <div class="wp-preview-frame desktop" id="preview-frame">
+            <div class="preview-inner" id="preview-inner">
+              <p style="color:#aaa;text-align:center;padding:60px 0">Start writing to see your preview…</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ══ RIGHT: SIDEBAR ══ -->
+  <aside class="wp-sidebar">
+
+    <!-- Publish Card -->
+    <div class="wp-sidebar-card wp-publish-card">
+      <h4 class="wp-sidebar-title">🚀 Publish</h4>
+      <div class="wp-field-group">
+        <label class="wp-label">Status</label>
+        <select id="post-status" class="wp-input">
+          <option value="published">✅ Published</option>
+          <option value="draft">📝 Draft</option>
+          <option value="scheduled">📅 Scheduled</option>
+        </select>
+      </div>
+      <div class="wp-field-group" id="schedule-wrap" style="display:none">
+        <label class="wp-label">Publish On</label>
+        <input type="datetime-local" id="post-schedule" class="wp-input" />
+        <span class="wp-hint">Post goes live automatically on this date & time</span>
+      </div>
+      <div class="wp-field-group">
+        <label class="wp-label">Publish Date</label>
+        <input type="date" id="post-date" class="wp-input" />
+      </div>
+      <div class="wp-publish-actions">
+        <button class="wp-btn-draft-full" id="sidebar-save-draft">💾 Save Draft</button>
+        <button class="wp-btn-publish-full" id="sidebar-publish">🚀 Publish Now</button>
+      </div>
+      <button class="wp-btn-preview-full" id="btn-preview-post">👁️ Preview Post</button>
+    </div>
+
+    <!-- Category & Author -->
+    <div class="wp-sidebar-card">
+      <h4 class="wp-sidebar-title">🏷️ Category & Author</h4>
+      <div class="wp-field-group">
+        <label class="wp-label">Category <span class="req">*</span></label>
+        <input type="text" id="post-category" class="wp-input" placeholder="e.g. Financial Planning" list="category-list" />
+        <datalist id="category-list">
+          <option value="Income"></option>
+          <option value="Success Stories"></option>
+          <option value="Getting Started"></option>
+          <option value="Safety"></option>
+          <option value="Financial Planning"></option>
+          <option value="Comparison"></option>
+          <option value="Tips & Tricks"></option>
+          <option value="News & Updates"></option>
+          <option value="LIC Policies"></option>
+          <option value="Agent Life"></option>
+        </datalist>
+      </div>
+      <div class="wp-field-group">
+        <label class="wp-label">Tags</label>
+        <div class="wp-tags-input-wrap" id="tags-wrap"></div>
+        <input type="text" id="tags-input" class="wp-input" placeholder="Type tag & press Enter…" />
+        <span class="wp-hint">Press Enter to add each tag</span>
+      </div>
+      <div class="wp-field-group">
+        <label class="wp-label">Author</label>
+        <input type="text" id="post-author" class="wp-input" value="Shivam Tripathi" />
+      </div>
+    </div>
+
+    <!-- Readability Stats -->
+    <div class="wp-sidebar-card">
+      <h4 class="wp-sidebar-title">📊 Writing Stats</h4>
+      <div class="wp-stats-grid">
+        <div class="wp-stat-item">
+          <span class="wp-stat-val" id="stat-words">0</span>
+          <span class="wp-stat-label">Words</span>
+        </div>
+        <div class="wp-stat-item">
+          <span class="wp-stat-val" id="stat-chars">0</span>
+          <span class="wp-stat-label">Chars</span>
+        </div>
+        <div class="wp-stat-item">
+          <span class="wp-stat-val" id="stat-reading">0</span>
+          <span class="wp-stat-label">Min Read</span>
+        </div>
+        <div class="wp-stat-item">
+          <span class="wp-stat-val" id="stat-paragraphs">0</span>
+          <span class="wp-stat-label">Paragraphs</span>
+        </div>
+      </div>
+
+      <!-- Readability Bar -->
+      <div class="wp-readability">
+        <div class="wp-readability-label">
+          <span>Readability</span>
+          <span id="readability-label">—</span>
+        </div>
+        <div class="wp-readability-bar">
+          <div class="wp-readability-fill" id="readability-fill" style="width:0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recommended Reading -->
+    <div class="wp-sidebar-card">
+      <h4 class="wp-sidebar-title">📖 Recommended Reading</h4>
+      <div class="wp-field-group">
+        <label class="wp-label">Next Read</label>
+        <select id="post-recommended" class="wp-input">
+          <option value="">None (Auto-select)</option>
+        </select>
+        <span class="wp-hint">Select a blog post to recommend at the bottom of this article.</span>
+      </div>
+      <!-- Hidden slug input to maintain data structure -->
+      <input type="hidden" id="post-slug" />
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="wp-sidebar-card">
+      <h4 class="wp-sidebar-title">📋 Table of Contents</h4>
+      <div id="toc-list" class="wp-toc-list">
+        <p class="wp-hint" style="padding:8px 0">Add H2 headings in your content to auto-generate a TOC</p>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- ── TOAST ── -->
+<div id="wp-toast" class="wp-toast" style="display:none">
+  <span id="wp-toast-icon">✅</span>
+  <span id="wp-toast-msg">Saved!</span>
+</div>
+
+<!-- ── LINK MODAL ── -->
+<div id="link-modal" class="wp-modal-overlay" style="display:none">
+  <div class="wp-modal-box">
+    <h3>Insert Link</h3>
+    <div class="wp-field-group">
+      <label class="wp-label">Link Text</label>
+      <input type="text" id="link-text" class="wp-input" placeholder="Display text" />
+    </div>
+    <div class="wp-field-group">
+      <label class="wp-label">URL</label>
+      <input type="text" id="link-url" class="wp-input" placeholder="https://…" />
+    </div>
+    <label style="display:flex;align-items:center;gap:8px;margin:10px 0;">
+      <input type="checkbox" id="link-new-tab" checked /> Open in new tab
+    </label>
+    <div class="wp-modal-actions">
+      <button class="wp-btn-ghost" id="link-cancel">Cancel</button>
+      <button class="wp-btn-publish-full" id="link-insert">Insert Link</button>
+    </div>
+  </div>
+</div>
+
+<input type="hidden" id="edit-post-id" value="" />
+
+<!-- Image Lightbox -->
+<div id="img-lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.88);z-index:9999;align-items:center;justify-content:center;" onclick="if(event.target===this)this.style.display='none'">
+  <button onclick="document.getElementById('img-lightbox').style.display='none'" style="position:absolute;top:18px;right:22px;background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:1.5rem;width:42px;height:42px;border-radius:50%;cursor:pointer;">✕</button>
+  <img id="lightbox-img" src="" alt="Full preview" style="max-width:90vw;max-height:88vh;border-radius:10px;box-shadow:0 8px 40px rgba(0,0,0,0.5);object-fit:contain;" />
+</div>
+
+<script src="assets/js/write-post.js"></script>
+</body>
+</html>

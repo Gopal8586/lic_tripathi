@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>403 - Access Denied</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #c0392b;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .code { font-size: 10rem; font-weight: bold; margin: 0; line-height: 1; }
+    .msg { font-size: 2.5rem; margin-top: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px;}
+    .desc { font-size: 1.2rem; margin-top: 10px; margin-bottom: 40px; opacity: 0.9; max-width: 500px; }
+    .actions { display: flex; gap: 15px; justify-content: center; }
+    .btn {
+      padding: 12px 24px; background: rgba(0,0,0,0.2); color: #fff;
+      text-decoration: none; border-radius: 5px; border: 2px solid rgba(255,255,255,0.5); font-weight: 600; transition: 0.3s;
+    }
+    .btn:hover { background: rgba(0,0,0,0.4); }
+    .btn-primary { background: #fff; color: #c0392b; border-color: #fff; }
+    .btn-primary:hover { background: #f1c40f; color: #c0392b; border-color: #f1c40f; }
+    .icon { font-size: 5rem; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <div class="icon">🔒</div>
+  <h1 class="code">403</h1>
+  <div class="msg">Access Denied</div>
+  <div class="desc">You are logged in, but you don't have permission to access this page or resource.</div>
+  <div class="actions">
+    <a href="index.html" class="btn btn-primary">Return Home</a>
+    <a href="contact.html" class="btn">Contact Support</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,324 @@
+/* ── About Page Specific Styles ── */
+
+/* ── Responsive ── */
+
+@media (max-width: 1024px) {
+  .about-grid {
+    gap: 36px;
+    padding: 60px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    padding: 48px 0;
+    gap: 28px;
+  }
+
+  .about-content h2 {
+    font-size: clamp(1.4rem, 4.5vw, 2rem);
+  }
+
+  .about-content p {
+    font-size: .92rem;
+    line-height: 1.75;
+  }
+
+  .about-content .achievements {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 18px 0;
+  }
+
+  .achievement {
+    padding: 16px 10px;
+  }
+
+  .achievement .num {
+    font-size: 1.6rem;
+  }
+
+  .achievement .label {
+    font-size: .75rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-grid {
+    padding: 40px 0;
+    gap: 24px;
+  }
+
+  .about-image img {
+    border-radius: 14px;
+  }
+
+  .about-content h2 {
+    font-size: clamp(1.25rem, 5.5vw, 1.75rem);
+  }
+
+  .about-content .achievements {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .achievement {
+    padding: 14px 8px;
+  }
+
+  .achievement .num {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-grid {
+    padding: 32px 0;
+  }
+
+  .about-content p {
+    font-size: .88rem;
+  }
+
+  .about-content .achievements {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin: 14px 0;
+  }
+
+  .achievement {
+    padding: 12px 6px;
+  }
+
+  .achievement .num {
+    font-size: 1.25rem;
+  }
+
+  .achievement .label {
+    font-size: .7rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .about-content .achievements {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .about-content h2 {
+    font-size: 1.15rem;
+  }
+}
+
+/* ── Infographic Vision & Mission ── */
+.vm-infographic-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.vm-card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  padding: 0 16px 56px 16px;
+  margin-bottom: 40px; /* Prevents overlap with next section due to -28px tab */
+}
+
+.vm-card-content {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 50px 30px;
+  box-shadow: 0 12px 25px rgba(0,0,0,0.06);
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease;
+}
+
+.vm-card-wrapper:hover .vm-card-content {
+  transform: translateY(-5px);
+}
+
+.vm-card-bg {
+  position: absolute;
+  top: 50%;
+  bottom: 45px; /* 16px precisely meets the 01 tab's top when it is pushed down to -28px */
+  left: 6px;
+  right: 6px;
+  border-radius: 0 0 20px 20px;
+  z-index: 2;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.vm-gold .vm-card-bg {
+  background: var(--gold);
+}
+
+.vm-blue .vm-card-bg {
+  background: var(--primary);
+}
+
+.vm-card-bg::before,
+.vm-card-bg::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+}
+
+.vm-gold .vm-card-bg::before {
+  left: 0;
+  background: var(--gold);
+  clip-path: polygon(0 100%, 100% 100%, 0 0);
+}
+.vm-gold .vm-card-bg::after {
+  right: 0;
+  background: var(--gold);
+  clip-path: polygon(0 100%, 100% 100%, 100% 0);
+}
+
+.vm-blue .vm-card-bg::before {
+  left: 0;
+  background: var(--primary);
+  clip-path: polygon(0 100%, 100% 100%, 0 0);
+}
+.vm-blue .vm-card-bg::after {
+  right: 0;
+  background: var(--primary);
+  clip-path: polygon(0 100%, 100% 100%, 100% 0);
+}
+
+.vm-card-tab {
+  position: absolute;
+  bottom: -28px; /* ends exactly at the bottom of the wrapper */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 44px; /* perfectly meets the 44px line of the base */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 16px 16px;
+  color: var(--white);
+  font-weight: 800;
+  font-size: 1.3rem; /* larger font for clarity */
+  z-index: 0; /* ensured it is in front of base shadow */
+}
+
+.vm-gold .vm-card-tab {
+  background: #fbc707;
+}
+.vm-blue .vm-card-tab {
+  background: #1d4e9e;
+}
+
+.vm-card-tab::before,
+.vm-card-tab::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.vm-gold .vm-card-tab::before {
+  left: -16px;
+  background: #fbc707;
+  clip-path: polygon(100% 0, 100% 100%, 0 0);
+}
+.vm-gold .vm-card-tab::after {
+  right: -16px;
+  background: #fbc707;
+  clip-path: polygon(0 0, 0 100%, 100% 0);
+}
+
+.vm-blue .vm-card-tab::before {
+  left: -16px;
+  background: #1d4e9e;
+  clip-path: polygon(100% 0, 100% 100%, 0 0);
+}
+.vm-blue .vm-card-tab::after {
+  right: -16px;
+  background: #1d4e9e;
+  clip-path: polygon(0 0, 0 100%, 100% 0);
+}
+
+.vm-icon {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vm-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.vm-desc {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .vm-card-wrapper {
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 600px) {
+  .vm-card-wrapper {
+    max-width: 100%;
+    padding: 0 12px 46px 12px; /* 46px padding */
+    margin-bottom: 40px;
+  }
+  .vm-card-content {
+    padding: 40px 24px;
+  }
+  .vm-card-bg {
+    left: 4px;
+    right: 4px;
+    bottom: 4px; /* Meets the mobile tab top */
+  }
+  .vm-card-bg::before,
+  .vm-card-bg::after {
+    width: 8px;
+    height: 8px;
+    top: -8px;
+  }
+  .vm-card-tab {
+    bottom: -28px;
+    height: 50px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .vm-card-tab::before,
+  .vm-card-tab::after {
+    height: 12px;
+    width: 12px;
+    top: 0;
+  }
+  .vm-gold .vm-card-tab::before,
+  .vm-blue .vm-card-tab::before {
+    left: -12px;
+  }
+  .vm-gold .vm-card-tab::after,
+  .vm-blue .vm-card-tab::after {
+    right: -12px;
+  }
+}

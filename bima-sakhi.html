@@ -1,0 +1,820 @@
+﻿<!DOCTYPE html>
+<html lang="en-IN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Bima Sakhi | Team Shivam Tripathi</title>
+  <link rel="canonical" href="https://theshivamtripathi.com/bima-sakhi.html" id="canonical-url" />
+    <meta name="description"
+        content="Bima Sakhi by LIC of India empowers women as certified insurance advisors. Earn monthly stipend, get IRDAI certification and achieve financial independence." />
+    <link rel="icon" href="assets/images/favicon.webp" type="image/webp" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/bima-sakhi.css" />
+    <style>
+        .bs-faq-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 48px;
+            max-width: 860px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .bs-faq-item {
+            background: var(--white);
+            border: 1px solid var(--light-gray);
+            border-radius: var(--card-radius);
+            overflow: hidden;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .bs-faq-item:hover {
+            border-color: var(--primary-xlight);
+            box-shadow: var(--card-shadow);
+        }
+
+        .bs-faq-item.open {
+            border-color: var(--primary-xlight);
+            box-shadow: var(--card-shadow);
+        }
+
+        .bs-faq-question {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 20px 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.97rem;
+            color: var(--primary-dark);
+            line-height: 1.4;
+            transition: color 0.25s;
+        }
+
+        .bs-faq-question:hover {
+            color: var(--primary);
+        }
+
+        .bs-faq-item.open .bs-faq-question {
+            color: var(--primary);
+        }
+
+        .bs-faq-icon {
+            flex-shrink: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--section-bg);
+            transition: background 0.25s, transform 0.35s;
+        }
+
+        .bs-faq-icon svg {
+            width: 14px;
+            height: 14px;
+            color: var(--primary);
+            transition: color 0.25s;
+        }
+
+        .bs-faq-item.open .bs-faq-icon {
+            background: var(--primary);
+            transform: rotate(180deg);
+        }
+
+        .bs-faq-item.open .bs-faq-icon svg {
+            color: var(--white);
+        }
+
+        .bs-faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 24px;
+        }
+
+        .bs-faq-answer p {
+            font-size: 0.92rem;
+            color: var(--text-mid);
+            line-height: 1.8;
+            margin: 0;
+            padding-bottom: 20px;
+            border-top: 1px solid var(--light-gray);
+            padding-top: 14px;
+        }
+
+        @media(max-width:600px) {
+            .bs-faq-question {
+                font-size: 0.88rem;
+                padding: 16px 18px;
+            }
+
+            .bs-faq-answer {
+                padding: 0 18px;
+            }
+        }
+    </style>
+    <style>
+        .bs-cta-contact {
+            margin: 0 auto 32px;
+            max-width: 420px;
+        }
+
+        .bs-cta-contact-inner {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            background: rgba(20, 47, 96, 0.12);
+            border: 1px solid rgba(20, 47, 96, 0.2);
+            border-radius: 12px;
+            padding: 14px 22px;
+        }
+
+        .bs-cta-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(20, 47, 96, 0.15);
+            border: 2px solid rgba(20, 47, 96, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--primary-darker);
+        }
+
+        .bs-cta-contact-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            text-align: left;
+        }
+
+        .bs-cta-contact-text strong {
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--primary-darker);
+        }
+
+        .bs-cta-contact-text span {
+            font-size: 0.75rem;
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+
+        .bs-cta-phone {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 4px;
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary-darker);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .bs-cta-phone:hover {
+            opacity: 0.75;
+        }
+
+        @media(max-width:480px) {
+            .bs-cta-contact-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .bs-cta-contact-text {
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main id="main-content">
+        <section class="bs-hero" aria-labelledby="bs-hero-title">
+            <div class="bs-hero-pattern"></div>
+            <div class="bs-hero-glow"></div>
+            <div class="bs-hero-inner">
+                <div class="bs-hero-left">
+                    <nav class="bs-breadcrumb" aria-label="Breadcrumb"><a
+                            href="index.html">Home</a><span>&rsaquo;</span><span>Bima Sakhi</span></nav>
+                    <div class="bs-hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>By LIC of India</div>
+                    <h1 id="bs-hero-title" class="bs-hero-title">BIMA SAKHI</h1>
+                    <p class="bs-hero-sub">Life Insurance Corporation of India</p>
+                    <p class="bs-hero-tagline">Financial Independence Awaits!<br>Empower yourself. Serve your community.
+                    </p>
+                    <div class="bs-hero-pills"><span class="bs-hero-pill"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg>Flexible Work</span><span class="bs-hero-pill"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23" />
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                            </svg>Steady Income</span><span class="bs-hero-pill"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>Social Impact</span></div>
+                    <div class="bs-hero-actions"><a href="contact.html" class="bs-btn-primary"
+                            id="bs-hero-register">Register Now &rarr;</a><a href="#bs-benefits" class="bs-btn-outline"
+                            id="bs-hero-learn">Learn More</a></div>
+                </div>
+                <div class="bs-hero-right">
+                    <div class="bs-hero-img-wrap"><img src="assets/images/bima-sakhi-hero.png"
+                            alt="Bima Sakhi women insurance advisors" loading="eager" />
+                        <div class="bs-hero-img-badge">
+                            <div class="badge-num">18-70</div>
+                            <div class="badge-label">Age Eligible<br>All Women Welcome</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="bs-highlights-strip" role="region" aria-label="Key highlights">
+            <div class="bs-highlights-inner">
+                <div class="bs-highlight-item">
+                    <div class="bs-highlight-num">&#8377;7,000</div>
+                    <div class="bs-highlight-label">Monthly Stipend Yr 1</div>
+                </div>
+                <div class="bs-highlight-item">
+                    <div class="bs-highlight-num">&#8377;48,000</div>
+                    <div class="bs-highlight-label">Annual Commission</div>
+                </div>
+                <div class="bs-highlight-item">
+                    <div class="bs-highlight-num">24</div>
+                    <div class="bs-highlight-label">Annual Target Lives</div>
+                </div>
+                <div class="bs-highlight-item">
+                    <div class="bs-highlight-num">25 Hrs</div>
+                    <div class="bs-highlight-label">Free IRDAI Training</div>
+                </div>
+                <div class="bs-highlight-item">
+                    <div class="bs-highlight-num">&#8377;860</div>
+                    <div class="bs-highlight-label">Registration Fee</div>
+                </div>
+                <div class="bs-highlight-item">
+                    <div class="bs-highlight-num">10th</div>
+                    <div class="bs-highlight-label">Min. Qualification</div>
+                </div>
+            </div>
+        </div>
+        <section class="bs-what section-padding bg-white" aria-labelledby="bs-what-title">
+            <div class="container">
+                <div class="bs-what-grid">
+                    <div class="bs-what-img"><img src="assets/images/bima-sakhi-community.png"
+                            alt="Bima Sakhi advisor with family" loading="lazy" />
+                        <div class="bs-what-img-overlay">
+                            <div class="bs-eligibility-pill"><svg viewBox="0 0 24 24" width="14" height="14" fill="none"
+                                    stroke="currentColor" stroke-width="2.5">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                                    <circle cx="12" cy="7" r="4" />
+                                </svg>Women aged 18-70 including homemakers</div>
+                        </div>
+                    </div>
+                    <div class="bs-what-content">
+                        <h2 class="section-title" id="bs-what-title">What is Bima Sakhi?</h2>
+                        <p>Bima Sakhi is an initiative by <strong>Life Insurance Corporation of India (LIC)</strong> to
+                            empower women as insurance advisors in their communities. It helps them achieve
+                            <strong>financial independence</strong> while guiding families toward a secure financial
+                            future.
+                        </p>
+                        <p>Whether you are a homemaker, an unemployed woman, or someone seeking a flexible career - Bima
+                            Sakhi opens the door to professional growth with zero prior experience needed.</p>
+                        <div class="bs-what-features">
+                            <div class="bs-feature-item">
+                                <div class="bs-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                                    </svg></div>
+                                <div class="bs-feature-text">
+                                    <h4>IRDAI Certified Training</h4>
+                                    <p>Free 25-hour IC-38 course - government approved and professional</p>
+                                </div>
+                            </div>
+                            <div class="bs-feature-item">
+                                <div class="bs-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <line x1="12" y1="1" x2="12" y2="23" />
+                                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                                    </svg></div>
+                                <div class="bs-feature-text">
+                                    <h4>3-Year Stipend Support</h4>
+                                    <p>Guaranteed monthly stipend for your first 3 years of service</p>
+                                </div>
+                            </div>
+                            <div class="bs-feature-item">
+                                <div class="bs-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                        <circle cx="9" cy="7" r="4" />
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                                    </svg></div>
+                                <div class="bs-feature-text">
+                                    <h4>Community Respect</h4>
+                                    <p>Become a trusted financial advisor in your own neighbourhood</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="bs-benefits" class="bs-benefits" aria-labelledby="bs-benefits-title">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title" id="bs-benefits-title">Key Benefits of Bima Sakhi</h2>
+                    <div class="divider"></div>
+                    <p class="section-subtitle">Everything you need to build a successful independent career backed by
+                        India&rsquo;s most trusted insurer.</p>
+                </div>
+                <div class="bs-benefits-grid">
+                    <div class="bs-benefit-card">
+                        <div class="bs-benefit-icon-wrap bs-ic-blue"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23" />
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                            </svg></div>
+                        <h3>Financial Independence</h3>
+                        <p>Earn commissions and stipends at your own pace with no upper limit on income.</p>
+                    </div>
+                    <div class="bs-benefit-card">
+                        <div class="bs-benefit-icon-wrap bs-ic-gold"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <polyline points="12 6 12 12 16 14" />
+                            </svg></div>
+                        <h3>Flexible Working Hours</h3>
+                        <p>Balance work with personal and family life - work on your own schedule.</p>
+                    </div>
+                    <div class="bs-benefit-card">
+                        <div class="bs-benefit-icon-wrap bs-ic-red"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg></div>
+                        <h3>IRDAI Certification</h3>
+                        <p>Get professionally recognised training and become a certified insurance advisor.</p>
+                    </div>
+                    <div class="bs-benefit-card">
+                        <div class="bs-benefit-icon-wrap bs-ic-blue"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                                <polyline points="16 7 22 7 22 13" />
+                            </svg></div>
+                        <h3>Unlimited Earnings</h3>
+                        <p>More policies = more income. There is absolutely no cap on how much you can earn.</p>
+                    </div>
+                    <div class="bs-benefit-card">
+                        <div class="bs-benefit-icon-wrap bs-ic-gold"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                            </svg></div>
+                        <h3>Community Respect</h3>
+                        <p>Become a trusted advisor in your area - respected by families and society.</p>
+                    </div>
+                    <div class="bs-benefit-card">
+                        <div class="bs-benefit-icon-wrap bs-ic-red"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                            </svg></div>
+                        <h3>Expert Mentorship</h3>
+                        <p>Guidance from experienced LIC professionals and your Development Officer every month.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bs-stipend" aria-labelledby="bs-stipend-title">
+            <div class="container">
+                <div class="bs-stipend-header">
+                    <h2 id="bs-stipend-title">Stipend &amp; Commission Structure</h2>
+                    <p>Guaranteed monthly income for 3 years plus unlimited commissions on top</p>
+                    <div class="bs-divider-gold"></div>
+                </div>
+                <div class="bs-stipend-years">
+                    <div class="bs-year-card featured">
+                        <div class="bs-year-badge">Year 1</div>
+                        <h3>&#8377;7,000</h3>
+                        <p class="per-month">per month stipend</p>
+                        <div class="monthly-targets">
+                            <div class="bs-target-row"><span>Months 1-4 (1 policy)</span><span
+                                    class="amount">&#8377;2,000/mo</span></div>
+                            <div class="bs-target-row"><span>Months 5-8 (2 policies)</span><span
+                                    class="amount">&#8377;4,000/mo</span></div>
+                            <div class="bs-target-row"><span>Months 9-12 (3 policies)</span><span
+                                    class="amount">&#8377;6,000/mo</span></div>
+                        </div>
+                    </div>
+                    <div class="bs-year-card">
+                        <div class="bs-year-badge">Year 2</div>
+                        <h3>&#8377;6,000</h3>
+                        <p class="per-month">per month stipend</p>
+                        <div class="monthly-targets">
+                            <div class="bs-target-row"><span>Annual Target</span><span class="amount">24 lives</span>
+                            </div>
+                            <div class="bs-target-row"><span>Est. Commission</span><span
+                                    class="amount">&#8377;48,000</span></div>
+                            <div class="bs-target-row"><span>Bonus</span><span class="amount">Extra</span></div>
+                        </div>
+                    </div>
+                    <div class="bs-year-card">
+                        <div class="bs-year-badge">Year 3</div>
+                        <h3>&#8377;5,000</h3>
+                        <p class="per-month">per month stipend</p>
+                        <div class="monthly-targets">
+                            <div class="bs-target-row"><span>Commission</span><span class="amount">Unlimited</span>
+                            </div>
+                            <div class="bs-target-row"><span>No Income Cap</span><span class="amount">&#8734;</span>
+                            </div>
+                            <div class="bs-target-row"><span>Grow Your Network</span><span class="amount">Scale
+                                    Up</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bs-training" aria-labelledby="bs-training-title">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title" id="bs-training-title">Training &amp; Examination</h2>
+                    <div class="divider"></div>
+                </div>
+                <div class="bs-training-grid">
+                    <div class="bs-training-img"><img src="assets/images/bima-sakhi-training.png"
+                            alt="Bima Sakhi training session" loading="lazy" /></div>
+                    <div class="bs-training-content">
+                        <div class="bs-info-card training-card">
+                            <div class="bs-info-card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                    <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                                </svg>IC-38 Training Programme</div>
+                            <div class="bs-info-list">
+                                <div class="bs-info-list-item">
+                                    <div class="bs-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="3">
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg></div><span><strong>Course:</strong> IC-38 Insurance Regulatory</span>
+                                </div>
+                                <div class="bs-info-list-item">
+                                    <div class="bs-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="3">
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg></div><span><strong>Duration:</strong> 25 Hours Total</span>
+                                </div>
+                                <div class="bs-info-list-item">
+                                    <div class="bs-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="3">
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg></div><span><strong>Approved By:</strong> IRDAI, Govt. of India</span>
+                                </div>
+                                <div class="bs-info-list-item">
+                                    <div class="bs-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="3">
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg></div><span><strong>Cost:</strong> Free of Cost</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bs-info-card exam-card">
+                            <div class="bs-info-card-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                                </svg>Online MCQ Examination</div>
+                            <div class="bs-info-list">
+                                <div class="bs-info-list-item">
+                                    <div class="bs-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="3">
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg></div><span><strong>Platform:</strong> NSE-IT Online Portal</span>
+                                </div>
+                                <div class="bs-info-list-item">
+                                    <div class="bs-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="3">
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg></div><span><strong>Format:</strong> Multiple Choice Questions</span>
+                                </div>
+                                <div class="bs-info-list-item">
+                                    <div class="bs-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="3">
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg></div><span><strong>Duration:</strong> 1 Hour</span>
+                                </div>
+                                <div class="bs-info-list-item">
+                                    <div class="bs-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                            stroke-width="3">
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg></div><span><strong>Passing Marks:</strong> 15 out of 50</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bs-process" aria-labelledby="bs-process-title">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title" id="bs-process-title">Enrollment Process</h2>
+                    <div class="divider"></div>
+                    <p class="section-subtitle">Simple 6-step process to begin your journey as a Bima Sakhi advisor.</p>
+                </div>
+                <div class="bs-process-steps">
+                    <div class="bs-step">
+                        <div class="bs-step-num">01</div>
+                        <h4>Visit LIC Office</h4>
+                        <p>Visit your nearest LIC branch or contact a Development Officer to begin enrollment.</p>
+                    </div>
+                    <div class="bs-step">
+                        <div class="bs-step-num">02</div>
+                        <h4>Register on Portal</h4>
+                        <p>Register on LIC/IRDAI portal. A unique reference number will be generated for you.</p>
+                    </div>
+                    <div class="bs-step">
+                        <div class="bs-step-num">03</div>
+                        <h4>Complete IC-38 Training</h4>
+                        <p>Attend the free 25-hour IC-38 training programme approved by IRDAI.</p>
+                    </div>
+                    <div class="bs-step">
+                        <div class="bs-step-num">04</div>
+                        <h4>Pass Online Exam</h4>
+                        <p>Clear the online MCQ exam on NSE-IT platform. Minimum score: 15 out of 50.</p>
+                    </div>
+                    <div class="bs-step">
+                        <div class="bs-step-num">05</div>
+                        <h4>Get Appointment Letter</h4>
+                        <p>Receive your official appointment letter and agency number from LIC.</p>
+                    </div>
+                    <div class="bs-step">
+                        <div class="bs-step-num">06</div>
+                        <h4>Start Earning</h4>
+                        <p>Begin working as a Bima Sakhi - sell policies, earn stipend and commissions!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bs-why section-padding bg-white" aria-labelledby="bs-why-title">
+            <div class="container">
+                <div class="bs-why-grid">
+                    <div class="bs-why-img"><img src="assets/images/bima-sakhi-community.png"
+                            alt="Bima Sakhi community advisor" loading="lazy" /></div>
+                    <div class="bs-why-content">
+                        <h2 class="section-title" id="bs-why-title">Why Join Bima Sakhi?</h2>
+                        <div class="bs-why-item">
+                            <div class="bs-why-num">01</div>
+                            <div class="bs-why-text">
+                                <h4>Financial Independence on Your Terms</h4>
+                                <p>Earn commissions, bonuses and stipends - no ceiling on how much you can make.</p>
+                            </div>
+                        </div>
+                        <div class="bs-why-item">
+                            <div class="bs-why-num">02</div>
+                            <div class="bs-why-text">
+                                <h4>Professional Growth and Recognition</h4>
+                                <p>Become an IRDAI-certified advisor - a title that earns you respect in society.</p>
+                            </div>
+                        </div>
+                        <div class="bs-why-item">
+                            <div class="bs-why-num">03</div>
+                            <div class="bs-why-text">
+                                <h4>Ideal for Homemakers</h4>
+                                <p>Flexible hours mean you never have to compromise between family and career.</p>
+                            </div>
+                        </div>
+                        <div class="bs-why-item">
+                            <div class="bs-why-num">04</div>
+                            <div class="bs-why-text">
+                                <h4>Real Social Impact</h4>
+                                <p>Help families in your community secure their financial future.</p>
+                            </div>
+                        </div>
+                        <div class="bs-why-item">
+                            <div class="bs-why-num">05</div>
+                            <div class="bs-why-text">
+                                <h4>Ongoing Support System</h4>
+                                <p>Mentorship, marketing tools and monthly guidance from LIC Development Officers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bs-journey" aria-labelledby="bs-journey-title">
+            <div class="container bs-journey-inner">
+                <div class="text-center" style="position:relative;z-index:1;">
+                    <h2 class="section-title" id="bs-journey-title" style="color:var(--white);">Success Journey</h2>
+                    <div class="bs-divider-gold"></div>
+                </div>
+                <div class="bs-journey-steps">
+                    <div class="bs-journey-step">
+                        <div class="bs-journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                            </svg></div>
+                        <h4>Enroll</h4>
+                        <p>Register at LIC office</p>
+                    </div>
+                    <div class="bs-journey-step">
+                        <div class="bs-journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                                <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                            </svg></div>
+                        <h4>Train</h4>
+                        <p>Complete IC-38 training</p>
+                    </div>
+                    <div class="bs-journey-step">
+                        <div class="bs-journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2" />
+                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                            </svg></div>
+                        <h4>Exam</h4>
+                        <p>Pass online MCQ</p>
+                    </div>
+                    <div class="bs-journey-step">
+                        <div class="bs-journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg></div>
+                        <h4>Appoint</h4>
+                        <p>Get agency number</p>
+                    </div>
+                    <div class="bs-journey-step">
+                        <div class="bs-journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <line x1="12" y1="1" x2="12" y2="23" />
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                            </svg></div>
+                        <h4>Sell</h4>
+                        <p>Start earning now</p>
+                    </div>
+                    <div class="bs-journey-step">
+                        <div class="bs-journey-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
+                                <polyline points="16 7 22 7 22 13" />
+                            </svg></div>
+                        <h4>Grow</h4>
+                        <p>Scale income without limits</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="bs-cta" aria-labelledby="bs-cta-title">
+            <h2 id="bs-cta-title">Ready to Become a Bima Sakhi?</h2>
+            <p>Join thousands of women across India achieving financial independence while making a real difference in
+                their communities.</p><span class="bs-cta-officer-line"></span></div>
+            <div class="bs-cta-contact">
+                <div class="bs-cta-contact-inner">
+                    <div class="bs-cta-avatar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5" width="28" height="28">
+                            <circle cx="12" cy="8" r="4" />
+                            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+                        </svg></div>
+                    <div class="bs-cta-contact-text"><strong>Shivam Tripathi</strong><span>Development Officer
+                            &nbsp;&bull;&nbsp; LIC of India</span><a href="tel:+919336312716" class="bs-cta-phone"><svg
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14"
+                                height="14">
+                                <path
+                                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z" />
+                            </svg>9336312716</a></div>
+                </div>
+            </div>
+            <div class="bs-cta-actions"><a href="contact.html" class="bs-cta-btn-primary" id="bs-cta-register">Register
+                    Now - Only &#8377;860!</a><a
+                    href="https://wa.me/919336312716?text=I%20am%20interested%20in%20Bima%20Sakhi%20scheme"
+                    target="_blank" rel="noopener noreferrer" class="bs-cta-btn-wa" id="bs-cta-whatsapp"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 448 512"
+                        fill="currentColor">
+                        <path
+                            d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157z" />
+                    </svg>WhatsApp Us</a></div>
+            <div class="bs-fee-note"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                    stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="12" />
+                    <line x1="12" y1="16" x2="12.01" y2="16" />
+                </svg>&#8377;860 includes training, certification and exam fee</div>
+        </section>
+        <section class="bs-faq section-padding bg-white" aria-labelledby="bs-faq-title">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title" id="bs-faq-title">Frequently Asked Questions</h2>
+                    <div class="divider"></div>
+                    <p class="section-subtitle">Everything you need to know before joining the Bima Sakhi programme.</p>
+                </div>
+                <div class="bs-faq-grid">
+                    <div class="bs-faq-item" id="bs-faq-1"><button class="bs-faq-question" aria-expanded="false"
+                            aria-controls="bs-faq-ans-1"><span>Can homemakers join Bima Sakhi?</span><span
+                                class="bs-faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg></span></button>
+                        <div class="bs-faq-answer" id="bs-faq-ans-1" role="region">
+                            <p>Absolutely! Bima Sakhi is specially designed keeping homemakers in mind. The flexible
+                                working hours mean you can manage your household responsibilities and still build a
+                                rewarding career as a certified insurance advisor.</p>
+                        </div>
+                    </div>
+                    <div class="bs-faq-item" id="bs-faq-2"><button class="bs-faq-question" aria-expanded="false"
+                            aria-controls="bs-faq-ans-2"><span>Is there a fixed monthly salary?</span><span
+                                class="bs-faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg></span></button>
+                        <div class="bs-faq-answer" id="bs-faq-ans-2" role="region">
+                            <p>Yes! You receive a guaranteed monthly stipend &mdash; &#8377;7,000/month in Year 1,
+                                &#8377;6,000/month in Year 2, and &#8377;5,000/month in Year 3. On top of that, you earn
+                                commissions on every policy you sell, with no upper limit on total earnings.</p>
+                        </div>
+                    </div>
+                    <div class="bs-faq-item" id="bs-faq-3"><button class="bs-faq-question" aria-expanded="false"
+                            aria-controls="bs-faq-ans-3"><span>Do I need prior experience?</span><span
+                                class="bs-faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg></span></button>
+                        <div class="bs-faq-answer" id="bs-faq-ans-3" role="region">
+                            <p>No experience is required at all. LIC provides a free 25-hour IC-38 training programme
+                                that covers everything you need to know about insurance advising. You only need to have
+                                passed Class 10 (Matriculation) to be eligible.</p>
+                        </div>
+                    </div>
+                    <div class="bs-faq-item" id="bs-faq-4"><button class="bs-faq-question" aria-expanded="false"
+                            aria-controls="bs-faq-ans-4"><span>Can I earn more than the stipend?</span><span
+                                class="bs-faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg></span></button>
+                        <div class="bs-faq-answer" id="bs-faq-ans-4" role="region">
+                            <p>Yes, and this is one of the biggest advantages. Your stipend is just the guaranteed base.
+                                Every policy you sell earns you a commission on top of it. There is absolutely no cap
+                                &mdash; the more you sell, the more you earn. Many Bima Sakhis earn well beyond the
+                                stipend amount through commissions alone.</p>
+                        </div>
+                    </div>
+                    <div class="bs-faq-item" id="bs-faq-5"><button class="bs-faq-question" aria-expanded="false"
+                            aria-controls="bs-faq-ans-5"><span>What if I don&rsquo;t meet the monthly
+                                targets?</span><span class="bs-faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg></span></button>
+                        <div class="bs-faq-answer" id="bs-faq-ans-5" role="region">
+                            <p>The targets are structured to be achievable, starting with just 1 policy per month in the
+                                first 4 months. Your assigned LIC Development Officer provides regular mentorship,
+                                guidance, and marketing support to help you consistently meet and exceed your goals.</p>
+                        </div>
+                    </div>
+                    <div class="bs-faq-item" id="bs-faq-6"><button class="bs-faq-question" aria-expanded="false"
+                            aria-controls="bs-faq-ans-6"><span>What is the examination like?</span><span
+                                class="bs-faq-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg></span></button>
+                        <div class="bs-faq-answer" id="bs-faq-ans-6" role="region">
+                            <p>The exam is a 1-hour online Multiple Choice Question (MCQ) test conducted on the NSE-IT
+                                platform. You need to score a minimum of 15 out of 50 marks to pass. After completing
+                                the free 25-hour training, most candidates find the exam straightforward and manageable.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main><a href="https://wa.me/919336312716?text=I%20am%20interested%20in%20Bima%20Sakhi%20scheme" target="_blank"
+        rel="noopener noreferrer" class="wa-float" id="wa-float-btn"
+        aria-label="Connect with LIC Expert on WhatsApp"><span class="wa-float-label">Connect With LIC
+            Expert</span><span class="wa-float-btn"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26"
+                viewBox="0 0 448 512" fill="white">
+                <path
+                    d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157z" />
+            </svg></span></a>
+    <script>document.querySelectorAll('.bs-faq-question').forEach(function (btn) { btn.addEventListener('click', function () { var item = btn.closest('.bs-faq-item'); var answer = item.querySelector('.bs-faq-answer'); var isOpen = item.classList.contains('open'); document.querySelectorAll('.bs-faq-item.open').forEach(function (openItem) { openItem.classList.remove('open'); openItem.querySelector('.bs-faq-answer').style.maxHeight = '0'; openItem.querySelector('.bs-faq-question').setAttribute('aria-expanded', 'false'); }); if (!isOpen) { item.classList.add('open'); answer.style.maxHeight = answer.scrollHeight + 'px'; btn.setAttribute('aria-expanded', 'true'); } }); });</script>
+    <script
+        type="module">import { renderHeader } from "./components/header.js"; import { renderFooter } from "./components/footer.js"; renderHeader("bima-sakhi"); renderFooter();</script>
+</body>
+
+</html>

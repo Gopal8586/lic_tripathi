@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel - Blog Manager | Team Shivam Tripathi</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" href="assets/images/favicon.webp" type="image/webp" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@600;700&family=Montserrat:wght@600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/admin.css" />
+</head>
+
+<body>
+
+  <!-- ==================== LOGIN SCREEN ==================== -->
+  <div id="login-screen" class="login-screen">
+    <div class="login-bg-pattern"></div>
+    <div class="login-card">
+      <div class="login-logo">
+        <div class="login-logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
+          </svg>
+        </div>
+        <div>
+          <h1 class="login-title">Admin Panel</h1>
+          <p class="login-subtitle">Team Shivam Tripathi</p>
+        </div>
+      </div>
+      <p class="login-tagline">Secure blog management portal</p>
+
+      <form id="login-form" class="login-form" autocomplete="off">
+        <div class="form-group">
+          <label for="admin-username">Username</label>
+          <div class="input-wrap">
+            <span class="input-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
+              </svg>
+            </span>
+            <input type="text" id="admin-username" name="username" placeholder="Enter username" required
+              autocomplete="off" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="admin-password">Password</label>
+          <div class="input-wrap">
+            <span class="input-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18 8h-1V6A5 5 0 0 0 7 6v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2zm-6 9a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm3-9H9V6a3 3 0 0 1 6 0v2z" />
+              </svg>
+            </span>
+            <input type="password" id="admin-password" name="password" placeholder="Enter password" required />
+            <button type="button" class="toggle-pw" id="toggle-pw-btn" aria-label="Toggle password visibility">
+              <svg id="eye-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
+              </svg>
+              <svg id="eye-hide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                style="display:none">
+                <path
+                  d="M12 7c2.76 0 5 2.24 5 5 0 .65-.13 1.26-.36 1.83l2.92 2.92c1.51-1.26 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16C10.74 7.13 11.35 7 12 7zM2 4.27l2.28 2.28.46.46A11.8 11.8 0 0 0 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55c-.05.21-.08.43-.08.65 0 1.66 1.34 3 3 3 .22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53-2.76 0-5-2.24-5-5 0-.79.2-1.53.53-2.2zm4.31-.78l3.15 3.15.02-.16c0-1.66-1.34-3-3-3l-.17.01z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div id="login-error" class="login-error" aria-live="polite"></div>
+
+        <button type="submit" id="login-btn" class="btn-login">
+          <span id="login-btn-text">Sign In to Admin</span>
+          <span id="login-spinner" class="spinner" style="display:none"></span>
+        </button>
+      </form>
+
+      <p class="login-footer-note">Secure admin access only. Authorised personnel.</p>
+    </div>
+  </div>
+
+  <!-- ==================== ADMIN DASHBOARD ==================== -->
+  <div id="admin-app" class="admin-app" style="display:none">
+
+    <!-- Sidebar -->
+    <aside class="admin-sidebar" id="admin-sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <div class="sidebar-logo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
+            </svg>
+          </div>
+          <div>
+            <span class="sidebar-brand">Admin Panel</span>
+            <span class="sidebar-brand-sub">Blog Manager</span>
+          </div>
+        </div>
+        <button class="sidebar-close-btn" id="sidebar-close-btn" aria-label="Close sidebar">✕</button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <ul>
+          <li>
+            <a href="#" class="nav-item active" data-section="dashboard" id="nav-dashboard">
+              <span class="nav-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" />
+                </svg>
+              </span>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-item" data-section="all-posts" id="nav-allposts">
+              <span class="nav-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+                </svg>
+              </span>
+              <span>All Posts</span>
+              <span class="nav-badge" id="posts-count-badge">0</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-item" data-section="new-post" id="nav-newpost">
+              <span class="nav-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z" />
+                </svg>
+              </span>
+              <span>New Post</span>
+            </a>
+          </li>
+          <li>
+
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="admin-user-info">
+          <div class="admin-avatar">A</div>
+          <div>
+            <p class="admin-name">Admin</p>
+            <p class="admin-role">Super Admin</p>
+          </div>
+        </div>
+        <button class="btn-logout" id="logout-btn" title="Logout">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5-5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z" />
+          </svg>
+          Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+
+      <!-- Top Bar -->
+      <header class="admin-topbar">
+        <button class="menu-toggle-btn" id="menu-toggle-btn" aria-label="Toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+        </button>
+        <h2 class="topbar-title" id="topbar-title">Dashboard</h2>
+        <div class="topbar-right">
+          <span class="topbar-date" id="topbar-date"></span>
+          <a href="blog.html" target="_blank" class="btn-view-site" id="btn-view-blog">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+            </svg>
+            View Blog
+          </a>
+        </div>
+      </header>
+
+      <!-- Overlay for mobile sidebar -->
+      <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+      <!-- Content Area -->
+      <div class="admin-content">
+
+        <!-- ── DASHBOARD SECTION ── -->
+        <section id="section-dashboard" class="admin-section active">
+          <div class="section-header">
+            <h2>Welcome Back, Admin</h2>
+            <p>Here is an overview of your blog's current status and recent activity.</p>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-card stat-blue">
+              <div class="stat-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+                </svg>
+              </div>
+              <div class="stat-card-info">
+                <h3 id="total-posts-count">0</h3>
+                <p>Total Posts</p>
+              </div>
+            </div>
+            <div class="stat-card stat-gold">
+              <div class="stat-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" />
+                </svg>
+              </div>
+              <div class="stat-card-info">
+                <h3 id="published-posts-count">0</h3>
+                <p>Published</p>
+              </div>
+            </div>
+            <div class="stat-card stat-green">
+              <div class="stat-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z" />
+                </svg>
+              </div>
+              <div class="stat-card-info">
+                <h3 id="draft-posts-count">0</h3>
+                <p>Drafts</p>
+              </div>
+            </div>
+            <div class="stat-card stat-purple">
+              <div class="stat-card-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-4h2v4zm0-6h-2V7h2v4z" />
+                </svg>
+              </div>
+              <div class="stat-card-info">
+                <h3 id="categories-count">0</h3>
+                <p>Categories</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Posts Preview -->
+          <div class="dashboard-recent">
+            <div class="section-card-header">
+              <h3>Recent Posts</h3>
+              <button class="btn-sm-primary" data-section="all-posts">View All →</button>
+            </div>
+            <div id="recent-posts-list" class="recent-posts-list">
+              <p class="empty-state-sm">No posts yet. <a href="#" data-section="new-post">Create your first post →</a>
+              </p>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="quick-actions">
+            <div class="section-card-header">
+              <h3>Quick Actions</h3>
+            </div>
+            <div class="quick-action-grid">
+              <button class="qa-btn" data-section="new-post">
+                <span class="qa-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20"
+                    height="20">
+                    <path
+                      d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" />
+                  </svg>
+                </span>
+                <span>Write New Post</span>
+              </button>
+              <button class="qa-btn" data-section="all-posts">
+                <span class="qa-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20"
+                    height="20">
+                    <path
+                      d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
+                  </svg>
+                </span>
+                <span>Manage Posts</span>
+              </button>
+              <a href="blog.html" target="_blank" class="qa-btn">
+                <span class="qa-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20"
+                    height="20">
+                    <path
+                      d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" />
+                  </svg>
+                </span>
+                <span>View Blog Page</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── ALL POSTS SECTION ── -->
+        <section id="section-all-posts" class="admin-section">
+          <div class="section-header">
+            <h2>All Blog Posts</h2>
+            <p>Manage, edit, or delete your blog posts.</p>
+          </div>
+
+          <!-- Filter / Search Bar -->
+          <div class="posts-toolbar">
+            <div class="search-wrap">
+              <span class="search-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
+                </svg>
+              </span>
+              <input type="text" id="search-posts" placeholder="Search posts by title or category…" />
+            </div>
+            <select id="filter-category" class="filter-select">
+              <option value="">All Categories</option>
+            </select>
+            <select id="filter-status" class="filter-select">
+              <option value="">All Status</option>
+              <option value="published">Published</option>
+              <option value="draft">Draft</option>
+            </select>
+            <button class="btn-add-post" data-section="new-post" id="btn-add-post-top">
+              + New Post
+            </button>
+          </div>
+
+          <div id="posts-table-wrap">
+            <div id="posts-list" class="posts-list">
+              <!-- Posts cards rendered by JS -->
+              <div class="empty-state" id="no-posts-msg">
+                <div class="empty-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+                    <rect width="80" height="80" rx="16" fill="#f0f3f8" />
+                    <rect x="20" y="22" width="40" height="5" rx="2.5" fill="#c8d0e0" />
+                    <rect x="20" y="33" width="30" height="5" rx="2.5" fill="#dde2ed" />
+                    <rect x="20" y="44" width="35" height="5" rx="2.5" fill="#dde2ed" />
+                    <rect x="20" y="55" width="20" height="5" rx="2.5" fill="#e6eaf2" />
+                  </svg>
+                </div>
+                <h3>No Posts Yet</h3>
+                <p>Start writing your first blog post to get started.</p>
+                <button class="btn-sm-primary large" data-section="new-post">Write First Post</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ── NEW / EDIT POST SECTION ── -->
+        <section id="section-new-post" class="admin-section">
+          <div class="section-header">
+            <h2 id="post-form-title">Write New Post</h2>
+            <p id="post-form-subtitle">Fill in the details below to publish or save as draft.</p>
+          </div>
+
+          <form id="post-form" class="post-form" novalidate>
+            <input type="hidden" id="edit-post-id" value="" />
+
+            <div class="form-grid">
+              <!-- LEFT COLUMN -->
+              <div class="form-col-main">
+
+                <div class="form-group">
+                  <label for="post-title">Post Title <span class="required">*</span></label>
+                  <input type="text" id="post-title" placeholder="Enter a compelling title for your post…" required />
+                  <span class="char-count" id="title-char-count">0 / 100</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="post-excerpt">Short Excerpt / Summary <span class="required">*</span></label>
+                  <textarea id="post-excerpt" rows="3"
+                    placeholder="Write a brief 1–2 line summary that appears on the blog listing page…"
+                    required></textarea>
+                  <span class="char-count" id="excerpt-char-count">0 / 200</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="post-content">Full Post Content <span class="required">*</span></label>
+                  <div class="editor-toolbar">
+                    <button type="button" class="editor-btn" data-cmd="bold" title="Bold"><b>B</b></button>
+                    <button type="button" class="editor-btn" data-cmd="italic" title="Italic"><i>I</i></button>
+                    <button type="button" class="editor-btn" data-cmd="underline" title="Underline"><u>U</u></button>
+                    <span class="editor-sep"></span>
+                    <button type="button" class="editor-btn" data-cmd="insertUnorderedList" title="Bullet List">•
+                      List</button>
+                    <button type="button" class="editor-btn" data-cmd="insertOrderedList" title="Numbered List">1.
+                      List</button>
+                    <span class="editor-sep"></span>
+                    <button type="button" class="editor-btn" data-cmd="h2" title="Heading 2">H2</button>
+                    <button type="button" class="editor-btn" data-cmd="h3" title="Heading 3">H3</button>
+                    <span class="editor-sep"></span>
+                    <button type="button" class="editor-btn" data-cmd="createLink" title="Insert Link">🔗
+                      Link</button>
+                  </div>
+                  <div id="post-content" class="content-editor" contenteditable="true" role="textbox"
+                    aria-multiline="true" aria-label="Post content editor"
+                    placeholder="Write your full blog post content here. Use the toolbar above for formatting…"></div>
+                </div>
+
+              </div>
+
+              <!-- RIGHT COLUMN -->
+              <div class="form-col-side">
+
+                <div class="side-card">
+                  <h4 class="side-card-title">Publish Settings</h4>
+
+                  <div class="form-group">
+                    <label for="post-status">Status</label>
+                    <select id="post-status">
+                      <option value="published">Published</option>
+                      <option value="draft">Draft</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="post-date">Publish Date</label>
+                    <input type="date" id="post-date" />
+                  </div>
+
+                  <div class="form-actions-top">
+                    <button type="submit" class="btn-publish" id="btn-publish">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+                      </svg>
+                      <span id="publish-btn-text">Publish Post</span>
+                    </button>
+                    <button type="button" class="btn-save-draft" id="btn-save-draft">Save as Draft</button>
+                  </div>
+                </div>
+
+                <div class="side-card">
+                  <h4 class="side-card-title">Category & Tags</h4>
+
+                  <div class="form-group">
+                    <label for="post-category">Category <span class="required">*</span></label>
+                    <input type="text" id="post-category" placeholder="e.g. Income, Getting Started, Safety…" required
+                      list="category-list" />
+                    <datalist id="category-list">
+                      <option value="Income"></option>
+                      <option value="Success Stories"></option>
+                      <option value="Getting Started"></option>
+                      <option value="Safety"></option>
+                      <option value="Financial Planning"></option>
+                      <option value="Comparison"></option>
+                      <option value="Tips & Tricks"></option>
+                      <option value="News & Updates"></option>
+                    </datalist>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="post-author">Author Name</label>
+                    <input type="text" id="post-author" value="Shivam Tripathi" placeholder="Author name" />
+                  </div>
+                </div>
+
+                <div class="side-card">
+                  <h4 class="side-card-title">Featured Image</h4>
+                  <div class="form-group">
+                    <label for="post-image-file">Upload Local Image</label>
+                    <input type="file" id="post-image-file" accept="image/*" />
+                    <small class="field-hint" style="margin-top:0.5rem; display:block;">Or provide a URL below:</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="post-image">Image Path or URL</label>
+                    <input type="text" id="post-image" placeholder="e.g. assets/images/blog-img.webp" />
+                  </div>
+                  <div class="image-preview-wrap">
+                    <img id="image-preview" src="" alt="Image preview" style="display:none;cursor:pointer;"
+                      title="Click to enlarge" />
+                    <p id="image-preview-placeholder" class="img-placeholder-text">Image preview will appear here</p>
+                  </div>
+                  <button type="button" class="btn-preview-img" id="btn-preview-img">Preview Image</button>
+                </div>
+
+                <div class="side-card">
+                  <h4 class="side-card-title">Post Link (Optional)</h4>
+                  <div class="form-group">
+                    <label for="post-slug">Custom Link (optional)</label>
+                    <input type="text" id="post-slug" placeholder="Leave blank — auto-linked from blog page" />
+                    <small class="field-hint">Blog cards automatically open this post's full page. Only fill this if you
+                      want to link somewhere else.</small>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="form-bottom-actions">
+              <button type="button" class="btn-cancel" id="btn-cancel-post">Cancel</button>
+              <button type="button" class="btn-save-draft" id="btn-save-draft-bottom">Save as Draft</button>
+              <button type="submit" class="btn-publish" id="btn-publish-bottom">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" />
+                </svg>
+                <span id="publish-btn-bottom-text">Publish Post</span>
+              </button>
+            </div>
+
+          </form>
+        </section>
+
+      </div><!-- /admin-content -->
+    </div><!-- /admin-main -->
+  </div><!-- /admin-app -->
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- Delete Confirm Modal -->
+  <div id="delete-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="delete-modal-title"
+    style="display:none">
+    <div class="modal-box">
+      <div class="modal-icon danger">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#c0392b" width="40" height="40">
+          <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" />
+        </svg>
+      </div>
+      <h3 id="delete-modal-title">Delete Post?</h3>
+      <p id="delete-modal-msg">Are you sure you want to delete this post? This action cannot be undone.</p>
+      <div class="modal-actions">
+        <button class="btn-modal-cancel" id="delete-cancel-btn">Cancel</button>
+        <button class="btn-modal-confirm danger" id="delete-confirm-btn">Yes, Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Toast -->
+  <div id="toast" class="toast" role="alert" aria-live="polite" style="display:none">
+    <span id="toast-icon"></span>
+    <span id="toast-msg">Done!</span>
+  </div>
+
+  <!-- Post Preview Modal -->
+  <div id="preview-modal" class="modal-overlay" role="dialog" aria-modal="true" style="display:none">
+    <div class="modal-box preview-modal-box">
+      <div class="modal-top-bar">
+        <h3>Post Preview</h3>
+        <button class="modal-close-btn" id="preview-close-btn">✕</button>
+      </div>
+      <div id="preview-content" class="preview-content"></div>
+    </div>
+  </div>
+
+  <!-- Image Lightbox Modal -->
+  <div id="img-lightbox"
+    style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;align-items:center;justify-content:center;"
+    onclick="if(event.target===this)this.style.display='none'">
+    <button onclick="document.getElementById('img-lightbox').style.display='none'"
+      style="position:absolute;top:18px;right:22px;background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:1.5rem;width:40px;height:40px;border-radius:50%;cursor:pointer;line-height:1;">✕</button>
+    <img id="lightbox-img" src="" alt="Preview"
+      style="max-width:90vw;max-height:88vh;border-radius:10px;box-shadow:0 8px 40px rgba(0,0,0,0.5);object-fit:contain;" />
+  </div>
+
+  <script src="assets/js/admin.js"></script>
+</body>
+
+</html>

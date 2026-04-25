@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 - Page Not Found</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #050505;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .error-label {
+      font-size: 2rem;
+      letter-spacing: 5px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .glitch {
+      font-size: 15rem;
+      font-weight: 900;
+      position: relative;
+      margin: 0;
+      line-height: 1;
+      text-shadow: 
+        0.05em 0 0 #ff0055,
+        -0.03em -0.04em 0 #00ffaa,
+        0.025em 0.04em 0 #fff;
+    }
+    .page-not-found {
+      font-size: 2.5rem;
+      letter-spacing: 3px;
+      margin-top: 20px;
+      font-weight: 600;
+    }
+    .back-btn {
+      margin-top: 40px;
+      padding: 12px 24px;
+      border: 2px solid #fff;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: all 0.3s;
+      border-radius: 4px;
+    }
+    .back-btn:hover {
+      background: #fff;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="error-label">ERROR!</div>
+  <h1 class="glitch">404</h1>
+  <div class="page-not-found">PAGE NOT FOUND</div>
+  <div style="margin-top: 15px; color: #aaa; text-align: center; max-width: 400px; line-height: 1.5;">
+    The page you are looking for doesn't exist or has been moved.
+  </div>
+  <div style="margin-top: 30px; display: flex; gap: 10px;">
+    <input type="text" id="search-input" placeholder="Search site..." style="padding: 10px 15px; border-radius: 4px; border: none; outline: none; width: 200px;">
+    <button onclick="var q = document.getElementById('search-input').value.trim(); if(q) window.location.href = 'faqs.html#' + encodeURIComponent(q);" style="padding: 10px 20px; background: #fff; color: #000; border: none; border-radius: 4px; cursor: pointer; font-weight: bold;">Search</button>
+  </div>
+  <div style="margin-top: 30px; display: flex; gap: 15px;">
+    <a href="index.html" class="back-btn" style="margin-top: 0;">Go Back Home</a>
+    <a href="blog.html" class="back-btn" style="margin-top: 0; background: rgba(255,255,255,0.1);">Read Blog</a>
+  </div>
+</body>
+</html>

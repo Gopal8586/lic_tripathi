@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Team Shivam Tripathi</title>
+  <link rel="canonical" href="https://theshivamtripathi.com/blog.html" id="canonical-url" />
+  <meta name="description"
+    content="Read insightful blogs about becoming a LIC agent, insurance planning, and financial independence by Team Shivam Tripathi." />
+  <link rel="icon" href="assets/images/favicon.webp" type="image/webp" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link rel="stylesheet" href="assets/css/blog.css" />
+</head>
+
+<body>
+
+  <main id="main-content">
+
+    <section class="page-hero" aria-labelledby="blog-page-title">
+      <div class="container page-hero-inner">
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>›</span>
+          <span>Blog</span>
+        </div>
+        <h1 id="blog-page-title">Blog &amp; Insights</h1>
+        <p>Expert articles on LIC, insurance, and financial planning</p>
+      </div>
+    </section>
+
+    <section class="blog-section bg-light" aria-label="Blog articles">
+      <div class="container">
+        <div class="text-center" style="margin-bottom:50px;">
+          <h2 class="section-title">Latest Articles</h2>
+          <div class="divider"></div>
+        </div>
+
+        <!-- Posts rendered dynamically by the script below -->
+        <div class="blog-grid" id="blog-grid" role="list"></div>
+
+        <!-- Pagination Controls -->
+        <div id="pagination-container" class="pagination-container"></div>
+
+        <div style="text-align:center;margin-top:50px;">
+          <p style="color:var(--text-mid);margin-bottom:20px;">Interested in starting your LIC career? Get in touch with
+            us!</p>
+          <a href="contact.html" class="btn btn-primary" id="blog-contact-btn">Join Team Shivam Tripathi →</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module">
+    import { renderHeader } from './components/header.js';
+    import { renderFooter } from './components/footer.js';
+    renderHeader('blog');
+    renderFooter();
+  </script>
+
+  <script>
+    /* ──────────────────────────────────────────────────────────
+       BLOG PAGE — Dynamic Post Renderer
+       • Reads published posts from the admin panel's localStorage.
+       • If the admin has not created any posts yet, the 6 default
+         hardcoded posts below are shown as the fallback.
+    ─────────────────────────────────────────────────────────── */
+
+    const STORAGE_KEY = 'tst_blog_posts';
+
+    /* ---------- Default posts (fallback when admin has 0 posts) ---------- */
+    const DEFAULT_POSTS = [
+      {
+        id: 'default_1',
+        title: 'How LIC Agents Earn Money \u2013 Complete Commission Structure Explained',
+        excerpt: 'Understand the complete LIC agent commission structure \u2013 first-year, renewal commissions, bonuses, and how to maximize your earnings.',
+        category: 'Income',
+        author: 'Shivam Tripathi',
+        date: '2024-03-01',
+        image: 'assets/images/blog-ai-1.png',
+        slug: './contact.html',
+        status: 'published'
+      },
+      {
+        id: 'default_2',
+        title: 'What Makes a Successful LIC Agent? 10 Habits of Top Performers',
+        excerpt: 'Discover the habits and mindsets that separate top-performing LIC agents from the rest. Tips from 15+ years of field experience.',
+        category: 'Success Stories',
+        author: 'Shivam Tripathi',
+        date: '2024-02-01',
+        image: 'assets/images/blog-ai-2.png',
+        slug: './contact.html',
+        status: 'published'
+      },
+      {
+        id: 'default_3',
+        title: 'How to Become a LIC Agent in Prayagraj \u2013 Complete 2024 Guide',
+        excerpt: 'Step-by-step guide to becoming a LIC Agent in Prayagraj. Documents needed, IRDA exam details, and tips to start fast.',
+        category: 'Getting Started',
+        author: 'Shivam Tripathi',
+        date: '2024-01-01',
+        image: 'assets/images/blog-ai-3.png',
+        slug: './contact.html',
+        status: 'published'
+      },
+      {
+        id: 'default_4',
+        title: 'How to Identify Fake LIC Agents \u2013 Protect Yourself from Fraud',
+        excerpt: 'Important tips to verify a genuine LIC agent and protect yourself from insurance fraud. Always check agent credentials.',
+        category: 'Safety',
+        author: 'Team Shivam Tripathi',
+        date: '2023-12-01',
+        image: 'assets/images/blog-ai-4.png',
+        slug: './contact.html',
+        status: 'published'
+      },
+      {
+        id: 'default_5',
+        title: 'Top 5 LIC Policies for Maximum Returns in 2024',
+        excerpt: 'Compare LIC\'s best performing plans for savings, investment, and protection. Find the right policy for your financial goals.',
+        category: 'Financial Planning',
+        author: 'Team Shivam Tripathi',
+        date: '2023-11-01',
+        image: 'assets/images/blog-ai-5.png',
+        slug: './contact.html',
+        status: 'published'
+      },
+      {
+        id: 'default_6',
+        title: 'LIC vs Private Insurance Companies \u2013 Why LIC Wins Every Time',
+        excerpt: 'An objective comparison of LIC with private insurance companies on claim settlement, trust, returns, and agent support.',
+        category: 'Comparison',
+        author: 'Shivam Tripathi',
+        date: '2023-10-01',
+        image: 'assets/images/blog-ai-6.png',
+        slug: './contact.html',
+        status: 'published'
+      },
+      {
+        id: 'default_7',
+        title: 'The Power of Early Planning – Why Start LIC In Your 20s?',
+        excerpt: 'Starting your LIC policy in your 20s allows you to secure maximum coverage at minimum premiums. Read why early planning is essential.',
+        content: '<p>One of the biggest financial mistakes people make is delaying their life insurance until their 30s or 40s. The golden rule of insurance is: the younger you are, the cheaper the premium. Starting an LIC policy in your 20s gives you a massive advantage.</p><h2>Why Buy LIC in Your 20s?</h2><ul><li><strong>Lower Premiums:</strong> A term plan bought at age 25 can cost half of what it costs at age 35. You lock in that low rate for life.</li><li><strong>Longer Compounding:</strong> Endowment plans benefit greatly from time. Giving your investments 30-40 years to grow creates a massive maturity corpus through bonuses.</li><li><strong>Easier Approval:</strong> You are generally healthier in your 20s. Policies are issued quickly without heavy medical tests.</li><li><strong>Forced Savings:</strong> It builds a discipline of saving money before lifestyle inflation kicks in.</li></ul><p>Don’t wait for "the right time" to buy insurance. The right time is always right now.</p>',
+        category: 'Financial Planning',
+        author: 'Team Shivam Tripathi',
+        date: '2024-04-15',
+        image: 'assets/images/blog-ai-7.png',
+        slug: './contact.html',
+        status: 'published'
+      }
+    ];
+
+    /* ---------- Helpers ---------- */
+    function formatMonthYear(dateStr) {
+      if (!dateStr) return '';
+      const d = new Date(dateStr);
+      return d.toLocaleDateString('en-IN', { month: 'long', year: 'numeric' });
+    }
+
+    function esc(str) {
+      const d = document.createElement('div');
+      d.textContent = str || '';
+      return d.innerHTML;
+    }
+
+    function formatTitle(str) {
+      if (!str) return '';
+      let t = esc(str);
+      t = t.replace(/\? /g, '?<br>');
+      t = t.replace(/ – /g, ' –<br>');
+      t = t.replace(/ \u2013 /g, ' –<br>');
+      return t;
+    }
+
+    /* ---------- Card template ---------- */
+    function buildCard(post, index) {
+      /* Always link to the individual post page using the post's ID */
+      const postLink = './blog-post.html?id=' + encodeURIComponent(post.id);
+      const image = post.image || 'assets/images/shivam-awards.webp';
+      const uid = 'blog-post-' + (index + 1) + '-link';
+
+      return `
+        <article class="blog-card" role="listitem" aria-label="Blog post: ${esc(post.title)}">
+          <div class="blog-thumb">
+            <a href="${esc(postLink)}" id="${uid}">
+              <img src="${esc(image)}"
+                   alt="${esc(post.title)}"
+                   loading="lazy"
+                   onerror="this.src='assets/images/shivam-awards.webp'" />
+            </a>
+          </div>
+          <div class="blog-body">
+            <span class="blog-cat">${esc(post.category || 'General')}</span>
+            <h3><a href="${esc(postLink)}">${formatTitle(post.title)}</a></h3>
+            <p>${esc(post.excerpt || '')}</p>
+            <div class="blog-meta">
+              <span>&#128100; ${esc(post.author || 'Shivam Tripathi')}</span>
+              <span>&#128197; ${formatMonthYear(post.date)}</span>
+            </div>
+          </div>
+        </article>`;
+    }
+
+    /* ---------- Main render ---------- */
+    let currentPage = 1;
+    const postsPerPage = 6;
+    let blogList = [];
+
+    function renderBlog() {
+      const grid = document.getElementById('blog-grid');
+      const paginationContainer = document.getElementById('pagination-container');
+      if (!grid) return;
+
+      if (blogList.length === 0) {
+        /* Load posts saved by the admin panel */
+        let adminPosts = [];
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          adminPosts = raw ? JSON.parse(raw) : [];
+        } catch (_) {
+          adminPosts = [];
+        }
+
+        // Auto-merge any default posts that are missing from localStorage
+        const existingIds = new Set(adminPosts.map(p => p.id));
+        let mergedPosts = [...adminPosts];
+        let needsSave = false;
+
+        DEFAULT_POSTS.forEach(dp => {
+          const existing = mergedPosts.find(p => p.id === dp.id);
+          if (!existing) {
+            mergedPosts.push(dp);
+            needsSave = true;
+          } else {
+            // Force update images for default posts to fix broken links
+            if (existing.image !== dp.image) {
+              existing.image = dp.image;
+              needsSave = true;
+            }
+            if (!existing.content && dp.content) {
+              existing.content = dp.content;
+              needsSave = true;
+            }
+          }
+        });
+
+        if (needsSave) {
+          try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(mergedPosts));
+          } catch (e) { }
+        }
+
+        const today = new Date().toISOString().split('T')[0];
+        const publishedPosts = mergedPosts.filter(p => p.status === 'published' && (!p.date || p.date <= today));
+        blogList = publishedPosts.slice().reverse();
+      }
+
+      if (!blogList.length) {
+        grid.innerHTML =
+          '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-mid)">' +
+          '<p style="font-size:1.1rem">No blog posts published yet. Check back soon!</p></div>';
+        if (paginationContainer) paginationContainer.innerHTML = '';
+        return;
+      }
+
+      // Pagination logic
+      const totalPages = Math.ceil(blogList.length / postsPerPage);
+      if (currentPage < 1) currentPage = 1;
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      const startIndex = (currentPage - 1) * postsPerPage;
+      const endIndex = startIndex + postsPerPage;
+      const paginatedPosts = blogList.slice(startIndex, endIndex);
+
+      grid.innerHTML = paginatedPosts.map(function (p, i) { return buildCard(p, startIndex + i); }).join('');
+
+      renderPagination(totalPages);
+    }
+
+    function renderPagination(totalPages) {
+      const paginationContainer = document.getElementById('pagination-container');
+      if (!paginationContainer) return;
+
+      const displayPages = Math.max(1, totalPages);
+
+      let html = '';
+
+      // "Recent" button
+      html += `<button class="page-btn ${currentPage === 1 ? 'disabled' : ''}" onclick="goToPage(1)" ${currentPage === 1 ? 'disabled' : ''}>Recent</button>`;
+
+      // Page numbers
+      for (let i = 1; i <= displayPages; i++) {
+        html += `<button class="page-btn ${currentPage === i ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+      }
+
+      // "Last" button
+      html += `<button class="page-btn ${currentPage === displayPages ? 'disabled' : ''}" onclick="goToPage(${displayPages})" ${currentPage === displayPages ? 'disabled' : ''}>Last</button>`;
+
+      paginationContainer.innerHTML = html;
+    }
+
+    window.goToPage = function (pageNumber) {
+      const totalPages = Math.ceil(blogList.length / postsPerPage);
+      if (pageNumber >= 1 && pageNumber <= totalPages) {
+        currentPage = pageNumber;
+        renderBlog();
+        // Scroll smoothly to top of the blog grid
+        document.querySelector('.blog-section').scrollIntoView({ behavior: 'smooth' });
+      }
+    };
+
+    renderBlog();
+  </script>
+
+</body>
+
+</html>

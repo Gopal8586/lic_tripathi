@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html><html lang="en-IN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><link rel="icon" href="assets/images/favicon.webp" type="image/webp"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet"/><link rel="stylesheet" href="assets/css/error-pages.css"/><title>Session Expired | Team Shivam Tripathi</title></head><body>
+<div class="err-doc">
+  <div class="err-doc-header">
+    <span class="err-doc-header-brand">LIC of India &nbsp;|&nbsp; Team Shivam Tripathi</span>
+    <span class="err-doc-header-ref">REF: ERR/SES/EXP</span>
+  </div>
+  <div class="err-doc-body">
+    <div class="err-watermark">SES</div>
+    <div class="err-stamp"><span class="err-stamp-text">POLICY<br>LAPSED</span><span class="err-stamp-code" style="font-size:1rem;">EXPD.</span></div>
+    <div class="err-form-group"><span class="err-field-label">Policy Type</span><span class="err-field-value highlight">Session — Access Token Expired</span></div>
+    <div class="err-form-group"><span class="err-field-label">Session ID</span><span class="err-field-value" id="sess-id">—</span></div>
+    <div class="err-form-group"><span class="err-field-label">Expiry Time</span><span class="err-field-value error-text" id="sess-time">—</span></div>
+    <hr class="err-divider"/>
+    <div class="err-message-box danger">Your session has expired due to inactivity. For your security, we automatically end sessions after a period of inactivity. Please log in again to continue where you left off.</div>
+    <div class="err-form-group"><span class="err-field-label">Returning to login in</span><div class="err-countdown" id="cd-sess">15</div><div class="err-progress"><div class="err-progress-bar" id="pb-sess" style="width:100%"></div></div></div>
+    <div class="err-actions">
+      <a href="admin.html" class="err-btn err-btn-primary">Login Again</a>
+      <a href="index.html" class="err-btn err-btn-outline">&#8592; Go Home</a>
+    </div>
+  </div>
+  <div class="err-doc-footer">
+    <span>Team Shivam Tripathi &copy; 2025</span>
+    <span id="footer-sess-time"></span>
+  </div>
+</div>
+<script>
+  var n=new Date();
+  document.getElementById("sess-id").textContent="SESS-"+Math.random().toString(36).substr(2,10).toUpperCase();
+  document.getElementById("sess-time").textContent=n.toLocaleTimeString("en-IN");
+  document.getElementById("footer-sess-time").textContent="Expired: "+n.toLocaleString("en-IN");
+  var s=15,pb=document.getElementById("pb-sess"),cd=document.getElementById("cd-sess");
+  var t=setInterval(function(){ s--; cd.textContent=s; pb.style.width=(s/15*100)+"%"; if(s<=0){clearInterval(t);window.location.href="admin.html";} },1000);
+</script>
+</body></html>
+
+
